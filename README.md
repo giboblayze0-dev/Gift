@@ -1,1 +1,1 @@
-blayzemusic.com
+pangomusic.net
