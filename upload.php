@@ -2,9 +2,9 @@
 $conn = new mysqli("localhost", "root", "", "music");
 
 // CLOUDINARY CONFIG
-$cloud_name = "YOUR_CLOUD_NAME";
-$api_key = "YOUR_API_KEY";
-$api_secret = "YOUR_API_SECRET";
+$cloud_name = "dvvjrd7ax";
+$api_key = "386928255371945";
+$api_secret = "03IGQ";
 
 // FUNCTION TO UPLOAD TO CLOUDINARY
 function uploadToCloudinary($filePath, $resource_type = "auto") {
