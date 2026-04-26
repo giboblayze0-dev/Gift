@@ -71,7 +71,7 @@ function loadSection($conn, $section) {
       <div>
         <h3><?php echo $row['title']; ?></h3>
         <p><?php echo $row['artist']; ?></p>
-
+<img src="<?php echo $row['image']; ?>" width="150">
         <audio controls>
           <source src="<?php echo $row['audio']; ?>">
         </audio>
