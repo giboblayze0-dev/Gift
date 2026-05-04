@@ -1,0 +1,37 @@
+body {
+    background: black;
+    color: white;
+    font-family: Arial;
+}
+
+h2 {
+    text-align: center;
+}
+
+.song {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+button {
+    background: yellow;
+    color: black;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+nav {
+    text-align: center;
+    padding: 10px;
+    background: #111;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    display: block;
+}
