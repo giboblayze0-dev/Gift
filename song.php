@@ -105,7 +105,25 @@ Download Song
 
 </a>
 
+<div class="like-box">
 
+❤️ 
+<span id="likes">
+<?php echo $song['likes']; ?>
+</span>
+
+Likes
+
+<br><br>
+
+<button onclick="likeSong()">
+
+❤️ Like
+
+</button>
+
+
+</div>
 
 <p>
 
@@ -119,7 +137,67 @@ Views:
 </div>
 
 
+<script>
 
+
+function likeSong(){
+
+
+let id = "<?php echo $song['id']; ?>";
+
+
+let liked = localStorage.getItem(
+"liked_"+id
+);
+
+
+
+if(liked){
+
+alert("You already liked this song");
+
+return;
+
+}
+
+
+
+fetch("like.php",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/x-www-form-urlencoded"
+
+},
+
+body:"id="+id
+
+
+})
+
+.then(res=>res.text())
+
+.then(data=>{
+
+
+document.getElementById("likes").innerHTML=data;
+
+
+localStorage.setItem(
+"liked_"+id,
+"yes"
+);
+
+
+});
+
+
+}
+
+
+</script>
 
 </body>
 
