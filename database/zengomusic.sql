@@ -1,0 +1,13 @@
+CREATE TABLE songs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    artist VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    image VARCHAR(500) NOT NULL,
+    audio VARCHAR(500) NOT NULL,
+    download VARCHAR(500),
+    section VARCHAR(50) NOT NULL,
+    views INT DEFAULT 0,
+    likes INT DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
