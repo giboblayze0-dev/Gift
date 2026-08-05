@@ -1,3 +1,28 @@
+form{
+
+text-align:center;
+margin:20px;
+
+}
+
+form input{
+
+width:70%;
+padding:12px;
+border-radius:5px;
+
+}
+
+form button{
+
+padding:12px 20px;
+background:#00aaff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+
+}
 .pagination{
 
 text-align:center;
