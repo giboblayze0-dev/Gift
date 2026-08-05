@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule ^([^/]+)$ song.php?slug=$1 [L,QSA]
