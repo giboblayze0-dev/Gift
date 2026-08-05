@@ -1,23 +1,12 @@
 <?php
-
-$host = "localhost";
-$user = "YOUR_DATABASE_USERNAME";
-$password = "YOUR_DATABASE_PASSWORD";
-$database = "zengomusic";
-
-
 $conn = mysqli_connect(
-    $host,
-    $user,
-    $password,
-    $database
+    "your_mysql_host",
+    "your_mysql_username",
+    "your_mysql_password",
+    "your_database_name"
 );
 
-
-if(!$conn){
-
-    die("Database connection failed");
-
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-
 ?>
