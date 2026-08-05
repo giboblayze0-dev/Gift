@@ -1,3 +1,7 @@
 RewriteEngine On
 
+# Old URL
+RewriteRule ^music/(.*)$ song.php?slug=$1 [L,QSA]
+
+# New clean URL
 RewriteRule ^([^/]+)$ song.php?slug=$1 [L,QSA]
