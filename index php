@@ -116,12 +116,20 @@ Load More
 </nav>
 
 
-<input 
+<form action="search.php" method="GET">
+
+<input
 type="search"
-id="search"
-placeholder="Search song or artist..."
-onkeyup="searchMusic()"
->
+name="q"
+placeholder="Search music...">
+
+<button type="submit">
+
+Search
+
+</button>
+
+</form>
 
 
 </header>
