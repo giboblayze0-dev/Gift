@@ -30,22 +30,28 @@ $song = mysqli_fetch_assoc($result);
 
 <head>
 
+<title><?php echo $song['title']; ?> | Zengomusic</title>
 
-<title>
-<?php echo $song['title']; ?> - <?php echo $song['artist']; ?> | Zengomusic
-</title>
+<meta name="description" content="Download <?php echo $song['title']; ?> by <?php echo $song['artist']; ?>">
 
+<link rel="canonical" href="https://zengomusic.great-site.net/<?php echo $song['slug']; ?>">
 
-<meta name="description" content="
-Download <?php echo $song['title']; ?> by <?php echo $song['artist']; ?> on Zengomusic.
-">
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-<link rel="stylesheet" href="style.css">
-
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"MusicRecording",
+ "name":"<?php echo $song['title']; ?>",
+ "byArtist":{
+   "@type":"MusicGroup",
+   "name":"<?php echo $song['artist']; ?>"
+ },
+ "image":"<?php echo $song['image']; ?>",
+ "url":"https://zengomusic.great-site.net/<?php echo $song['slug']; ?>",
+ "datePublished":"<?php echo date('Y-m-d', strtotime($song['created_at'])); ?>",
+ "genre":"Malawi Music",
+ "description":"Download <?php echo $song['title']; ?> by <?php echo $song['artist']; ?> on Zengomusic."
+}
+</script>
 
 </head>
 
