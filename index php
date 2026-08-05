@@ -1,0 +1,228 @@
+<?php
+
+include "db.php";
+
+
+function showSongs($conn,$section,$title){
+
+$sql = "SELECT * FROM songs 
+WHERE section='$section'
+ORDER BY id DESC";
+
+$result = mysqli_query($conn,$sql);
+
+$count = 0;
+
+?>
+
+
+<section>
+
+<h2><?php echo $title; ?></h2>
+
+
+<div class="grid" id="<?php echo $section; ?>">
+
+
+<?php
+
+while($song = mysqli_fetch_assoc($result)){
+
+$count++;
+
+$hidden = ($count > 6) ? "hidden-song" : "";
+
+?>
+
+
+<div class="card <?php echo $hidden; ?>">
+
+
+<a href="song.php?id=<?php echo $song['id']; ?>">
+
+
+<img src="<?php echo $song['image']; ?>">
+
+
+<h3>
+<?php echo $song['title']; ?>
+</h3>
+
+
+<p>
+<?php echo $song['artist']; ?>
+</p>
+
+
+</a>
+
+
+</div>
+
+
+<?php
+
+}
+
+?>
+
+</div>
+
+
+<button class="loadmore" onclick="loadMore('<?php echo $section; ?>',this)">
+Load More
+</button>
+
+
+</section>
+
+
+<?php
+
+}
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Zengomusic - Download Latest Music</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>Zengomusic</h1>
+
+
+<nav>
+
+<a href="index.php">Home</a>
+<a href="#">Albums</a>
+<a href="#">Contact</a>
+<a href="#">About</a>
+
+</nav>
+
+
+<input 
+type="search"
+id="search"
+placeholder="Search song or artist..."
+onkeyup="searchMusic()"
+>
+
+
+</header>
+
+
+
+<?php
+
+
+showSongs($conn,"new","New Music");
+
+
+showSongs($conn,"trending","Trending Music");
+
+
+showSongs($conn,"album","Albums");
+
+
+showSongs($conn,"new_video","New Videos");
+
+
+showSongs($conn,"trending_video","Trending Videos");
+
+
+?>
+
+
+
+<footer>
+
+<p>
+© 2026 Zengomusic. All rights reserved.
+</p>
+
+</footer>
+
+
+
+
+<script>
+
+
+function loadMore(section,button){
+
+let songs=document.querySelectorAll(
+"#"+section+" .hidden-song"
+);
+
+
+songs.forEach(function(song){
+
+song.style.display="block";
+
+});
+
+
+button.style.display="none";
+
+}
+
+
+
+
+function searchMusic(){
+
+let value=document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+let cards=document.querySelectorAll(".card");
+
+
+cards.forEach(function(card){
+
+
+let text=card.innerText.toLowerCase();
+
+
+if(text.includes(value)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+
+});
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
